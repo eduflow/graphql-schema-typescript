@@ -18,10 +18,6 @@ import { GraphQLResolveInfo, GraphQLScalarType } from 'graphql';
 export interface IProduct {
   id: string;
   name: string;
-  
-  /**
-   * Customers who buy this will also buy these
-   */
   relatedProducts: Array<IProduct>;
 }
 
@@ -34,16 +30,9 @@ export interface IProductNameMap {
   ProductB: ProductB;
 }
 
-/**
- * Try to cover List/Non-null List/Non-null list of non-null items
- */
 export interface ProductA extends IProduct {
   id: string;
   name: string;
-  
-  /**
-   * Customers who buy this will also buy these
-   */
   relatedProducts: Array<IProduct>;
   ProductA1?: ProductScalar;
   ProductA2: ProductScalar;
@@ -53,9 +42,6 @@ export interface ProductA extends IProduct {
   ProductA6: Array<ProductScalar>;
 }
 
-/**
- * Test with all scalar field
- */
 export interface ProductScalar {
   scalarString1?: string;
   scalarString2: string;
@@ -72,10 +58,6 @@ export interface ProductScalar {
 export interface ProductB extends IProduct {
   id: string;
   name: string;
-  
-  /**
-   * Customers who buy this will also buy these
-   */
   relatedProducts: Array<IProduct>;
   ProductB1?: ProductListScalar;
   ProductB2: ProductListScalar;
@@ -124,9 +106,6 @@ export interface RootSubscription {
   saleMade: string;
 }
 
-/**
- * Custom scalar type
- */
 export type Date = any;
 
 export type SearchResult = User | ProductA | ProductB;
@@ -141,9 +120,6 @@ export interface SearchResultNameMap {
   ProductB: ProductB;
 }
 
-/**
- * A user of the system
- */
 export interface User {
   firstName: string;
   lastName: string;
@@ -155,38 +131,13 @@ export interface User {
   username: string;
   email: string;
   role: UserRole;
-  
-  /**
-   * Url to the image
-   */
   profilePicture?: string;
-  
-  /**
-   * Account must be activated before using
-   */
   activated: boolean;
 }
 
-/**
- * Different role will have different access to our functionality
- * In the future, this will be changed by having User as interface
- * and implementing multiple User
- */
 export enum UserRole {
-  
-  /**
-   * System Administrator
-   */
   SYS_ADMIN = 'SYS_ADMIN',
-  
-  /**
-   * Manager - Have access to manage functions
-   */
   MANAGER = 'MANAGER',
-  
-  /**
-   * General Staff
-   */
   CLERK = 'CLERK',
   
   /**
@@ -610,10 +561,6 @@ import { GraphQLResolveInfo, GraphQLScalarType } from 'graphql';
 export interface MyCustomPrefixIProduct {
   id: string;
   name: string;
-  
-  /**
-   * Customers who buy this will also buy these
-   */
   relatedProducts: Array<MyCustomPrefixIProduct>;
 }
 
@@ -626,16 +573,9 @@ export interface MyCustomPrefixIProductNameMap {
   ProductB: MyCustomPrefixProductB;
 }
 
-/**
- * Try to cover List/Non-null List/Non-null list of non-null items
- */
 export interface MyCustomPrefixProductA extends MyCustomPrefixIProduct {
   id: string;
   name: string;
-  
-  /**
-   * Customers who buy this will also buy these
-   */
   relatedProducts: Array<MyCustomPrefixIProduct>;
   ProductA1?: MyCustomPrefixProductScalar;
   ProductA2: MyCustomPrefixProductScalar;
@@ -645,9 +585,6 @@ export interface MyCustomPrefixProductA extends MyCustomPrefixIProduct {
   ProductA6: Array<MyCustomPrefixProductScalar>;
 }
 
-/**
- * Test with all scalar field
- */
 export interface MyCustomPrefixProductScalar {
   scalarString1?: string;
   scalarString2: string;
@@ -664,10 +601,6 @@ export interface MyCustomPrefixProductScalar {
 export interface MyCustomPrefixProductB extends MyCustomPrefixIProduct {
   id: string;
   name: string;
-  
-  /**
-   * Customers who buy this will also buy these
-   */
   relatedProducts: Array<MyCustomPrefixIProduct>;
   ProductB1?: MyCustomPrefixProductListScalar;
   ProductB2: MyCustomPrefixProductListScalar;
@@ -716,9 +649,6 @@ export interface MyCustomPrefixRootSubscription {
   saleMade: string;
 }
 
-/**
- * Custom scalar type
- */
 export type MyCustomPrefixDate = any;
 
 export type MyCustomPrefixSearchResult =
@@ -739,9 +669,6 @@ export interface MyCustomPrefixSearchResultNameMap {
   ProductB: MyCustomPrefixProductB;
 }
 
-/**
- * A user of the system
- */
 export interface MyCustomPrefixUser {
   firstName: string;
   lastName: string;
@@ -753,38 +680,13 @@ export interface MyCustomPrefixUser {
   username: string;
   email: string;
   role: MyCustomPrefixUserRole;
-  
-  /**
-   * Url to the image
-   */
   profilePicture?: string;
-  
-  /**
-   * Account must be activated before using
-   */
   activated: boolean;
 }
 
-/**
- * Different role will have different access to our functionality
- * In the future, this will be changed by having User as interface
- * and implementing multiple User
- */
 export enum MyCustomPrefixUserRole {
-  
-  /**
-   * System Administrator
-   */
   SYS_ADMIN = 'SYS_ADMIN',
-  
-  /**
-   * Manager - Have access to manage functions
-   */
   MANAGER = 'MANAGER',
-  
-  /**
-   * General Staff
-   */
   CLERK = 'CLERK',
   
   /**

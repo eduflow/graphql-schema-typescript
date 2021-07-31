@@ -18,10 +18,6 @@ import { GraphQLResolveInfo, GraphQLScalarType } from 'graphql';
 export interface GQLIProduct {
   id: string;
   name: string;
-  
-  /**
-   * Customers who buy this will also buy these
-   */
   relatedProducts: Array<GQLIProduct>;
 }
 
@@ -34,16 +30,9 @@ export interface GQLIProductNameMap {
   ProductB: GQLProductB;
 }
 
-/**
- * Try to cover List/Non-null List/Non-null list of non-null items
- */
 export interface GQLProductA extends GQLIProduct {
   id: string;
   name: string;
-  
-  /**
-   * Customers who buy this will also buy these
-   */
   relatedProducts: Array<GQLIProduct>;
   ProductA1?: GQLProductScalar;
   ProductA2: GQLProductScalar;
@@ -53,9 +42,6 @@ export interface GQLProductA extends GQLIProduct {
   ProductA6: Array<GQLProductScalar>;
 }
 
-/**
- * Test with all scalar field
- */
 export interface GQLProductScalar {
   scalarString1?: string;
   scalarString2: string;
@@ -72,10 +58,6 @@ export interface GQLProductScalar {
 export interface GQLProductB extends GQLIProduct {
   id: string;
   name: string;
-  
-  /**
-   * Customers who buy this will also buy these
-   */
   relatedProducts: Array<GQLIProduct>;
   ProductB1?: GQLProductListScalar;
   ProductB2: GQLProductListScalar;
@@ -124,9 +106,6 @@ export interface GQLRootSubscription {
   saleMade: string;
 }
 
-/**
- * Custom scalar type
- */
 export type GQLDate = Date;
 
 export type GQLSearchResult = GQLUser | GQLProductA | GQLProductB;
@@ -141,9 +120,6 @@ export interface GQLSearchResultNameMap {
   ProductB: GQLProductB;
 }
 
-/**
- * A user of the system
- */
 export interface GQLUser {
   firstName: string;
   lastName: string;
@@ -155,38 +131,13 @@ export interface GQLUser {
   username: string;
   email: string;
   role: GQLUserRole;
-  
-  /**
-   * Url to the image
-   */
   profilePicture?: string;
-  
-  /**
-   * Account must be activated before using
-   */
   activated: boolean;
 }
 
-/**
- * Different role will have different access to our functionality
- * In the future, this will be changed by having User as interface
- * and implementing multiple User
- */
 export enum GQLUserRole {
-  
-  /**
-   * System Administrator
-   */
   SYS_ADMIN = 'SYS_ADMIN',
-  
-  /**
-   * Manager - Have access to manage functions
-   */
   MANAGER = 'MANAGER',
-  
-  /**
-   * General Staff
-   */
   CLERK = 'CLERK',
   
   /**
@@ -610,10 +561,6 @@ import { GraphQLResolveInfo, GraphQLScalarType } from 'graphql';
 export interface GQLIProduct {
   id: string;
   name: string;
-  
-  /**
-   * Customers who buy this will also buy these
-   */
   relatedProducts: Array<GQLIProduct>;
 }
 
@@ -626,16 +573,9 @@ export interface GQLIProductNameMap {
   ProductB: GQLProductB;
 }
 
-/**
- * Try to cover List/Non-null List/Non-null list of non-null items
- */
 export interface GQLProductA extends GQLIProduct {
   id: string;
   name: string;
-  
-  /**
-   * Customers who buy this will also buy these
-   */
   relatedProducts: Array<GQLIProduct>;
   ProductA1?: GQLProductScalar;
   ProductA2: GQLProductScalar;
@@ -645,9 +585,6 @@ export interface GQLProductA extends GQLIProduct {
   ProductA6: Array<GQLProductScalar>;
 }
 
-/**
- * Test with all scalar field
- */
 export interface GQLProductScalar {
   scalarString1?: string;
   scalarString2: string;
@@ -664,10 +601,6 @@ export interface GQLProductScalar {
 export interface GQLProductB extends GQLIProduct {
   id: string;
   name: string;
-  
-  /**
-   * Customers who buy this will also buy these
-   */
   relatedProducts: Array<GQLIProduct>;
   ProductB1?: GQLProductListScalar;
   ProductB2: GQLProductListScalar;
@@ -716,9 +649,6 @@ export interface GQLRootSubscription {
   saleMade: string;
 }
 
-/**
- * Custom scalar type
- */
 export type GQLDate = any;
 
 export type GQLSearchResult = GQLUser | GQLProductA | GQLProductB;
@@ -733,9 +663,6 @@ export interface GQLSearchResultNameMap {
   ProductB: GQLProductB;
 }
 
-/**
- * A user of the system
- */
 export interface GQLUser {
   firstName: string;
   lastName: string;
@@ -747,38 +674,13 @@ export interface GQLUser {
   username: string;
   email: string;
   role: GQLUserRole;
-  
-  /**
-   * Url to the image
-   */
   profilePicture?: string;
-  
-  /**
-   * Account must be activated before using
-   */
   activated: boolean;
 }
 
-/**
- * Different role will have different access to our functionality
- * In the future, this will be changed by having User as interface
- * and implementing multiple User
- */
 export enum GQLUserRole {
-  
-  /**
-   * System Administrator
-   */
   SYS_ADMIN = 'SYS_ADMIN',
-  
-  /**
-   * Manager - Have access to manage functions
-   */
   MANAGER = 'MANAGER',
-  
-  /**
-   * General Staff
-   */
   CLERK = 'CLERK',
   
   /**
